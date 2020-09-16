@@ -1,0 +1,12 @@
+
+/*.box:nth-child(2n) {background: #CCC}*/
+/*.box:nth-child(2n+1) {background: #AAA}*/
+.box:nth-child(odd) {background-color: #AAA}/* impair*/
+.box:nth-child(even) {background-color:burlywood} /* pair*/
+
+
+ .box {
+    height:190px;
+    padding: 10px;
+    text-align: center;
+}

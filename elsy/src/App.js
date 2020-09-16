@@ -1,26 +1,41 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+//import './App.css';
+
+import Person from './components/Person'
+import HeartRate from'./components/HeartRate'
+
+//import Icon from './components/core/Icon';
+
+let MIN_TEMPERATURE = -20
+let MAX_TEMPERATURE = 40
+let MIN_HEART = 80
+let MAX_HEART = 180
+let MIN_STEPS = 0
+let MAX_STEPS = 50000
+
+
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+  
+       
+         <div class="container-fluid" >
+         <Person></Person>
+         <HeartRate heart={MIN_HEART}></HeartRate>
+        
+          <div> <p>Bonjour!</p></div> 
+
+           <div>
+            <p>Battements de coeur: {MIN_HEART} </p> 
+            <p>Température : {MIN_TEMPERATURE}</p>
+            <p>Nombre de pas : {MIN_STEPS}</p>
+            </div>
+      
+
+        </div>
+        
+      
     );
   }
 }
