@@ -4,14 +4,15 @@ import React, { Component } from 'react';
 import Person from './components/Person'
 import HeartRate from'./components/HeartRate'
 
+
 //import Icon from './components/core/Icon';
 
 let MIN_TEMPERATURE = -20
-let MAX_TEMPERATURE = 40
+//let MAX_TEMPERATURE = 40
 let MIN_HEART = 80
-let MAX_HEART = 180
+//let MAX_HEART = 180
 let MIN_STEPS = 0
-let MAX_STEPS = 50000
+//let MAX_STEPS = 50000
 
 
 
