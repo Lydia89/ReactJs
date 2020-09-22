@@ -1,9 +1,8 @@
 {
-  "name": "elsy",
+  "name": "doublecount",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "rc-slider": "^9.4.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "2.1.8"
