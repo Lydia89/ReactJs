@@ -16,7 +16,7 @@ class HeartRate extends Component {
           value={this.props.heart} >
         </Slider>
 
-        { this.props.heart}
+        { this.props.heart} BPM
 
       </div>
 

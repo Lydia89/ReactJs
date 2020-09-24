@@ -8,12 +8,12 @@ class Slider extends Component {
     render() {
         return (
             <div className=" conteneur">
+                
                 <RCSlider
                     max={this.props.max}
                     min={this.props.min}
                     onChange={this.props.onChange}
                     value={this.props.value} />
-
 
             </div>
         )

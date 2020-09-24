@@ -8,17 +8,17 @@ class Temperatur extends Component {
 
 
         return (
-            <div class="box col-md-2 col-6" style={{ color: 'yellow' }} >
+            <div class="box col-md-2 col-6" >
 
-                <Icon name=" wb_sunny" ></Icon>
-
+               
+                <span style={{ color: 'yellow' }}> <Icon name=" wb_sunny" ></Icon> </span>
                 <Slider
                     max={this.props.max}
                     min={this.props.min}
                     onChange={this.props.onChange}
                     value={this.props.temperature} >
                 </Slider>
-                { this.props.temperature}
+                { this.props.temperature}°C
 
             </div>
 

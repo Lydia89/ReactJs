@@ -9,17 +9,17 @@ class Person extends Component {
             <div class="box col-md-2 col-6" style={{color:'black'}} >
                
                 <Icon name="directions_walk" ></Icon>
-
+                
                 <Slider 
           max={this.props.max}
           min={this.props.min}
           onChange={this.props.onChange}
           value={this.props.steps} >
-        </Slider>
-
-        { this.props.steps}  
-
-            </div>
+           </Slider>
+          
+           { this.props.steps} steps 
+           </div>
+        
         );
     }
 }
