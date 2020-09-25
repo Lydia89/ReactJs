@@ -7,7 +7,9 @@ render(){
 
 
     return(
-        <title>List</title>
+        <div>
+        <h4>List</h4>
+        </div>
     )
 }
 

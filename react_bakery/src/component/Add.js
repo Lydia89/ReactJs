@@ -1,15 +1,26 @@
 import React, { Component } from 'react';
 
 
-class Add extends Component{
+class Add extends Component {
 
-render(){
+    //
+   
+    render() { 
+
+        return (
+            <div className="container" >
+
+                <form className="form-inline " style={{visibility:"hidden"}}     >
+                    <input type="text" className="form-control" placeholder="item" />
+                    <button type="submit" className="btn btn-primary ">Add</button>
+                </form>
+        
+       
+            </div>
+
+        )
+        
+    }
 
 
-    return(
-        <title>Add</title>
-    )
-}
-
-
-}export default Add
+} export default Add
