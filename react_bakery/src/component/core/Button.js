@@ -1,38 +1,26 @@
 import React, { Component } from 'react';
 
-class Button extends Component {
+class Button extends Component { 
 
+
+    //"btn btn-outline-primary border-secondary text-secondary"
+    //this.props.isSelected.toString() ? 'btn btn-secondary' :   'btn btn-light'} 
+    // ${"border-secondary text-light"}
+    
     render() {
         return (
-
-
-            <div className="btn-group   btn-group-toggle" data-toggle="buttons">
-
-                <button   className="btn btn-outline-primary   border-secondary     text-secondary"
-                      onClick={this.props.onClick}  >
-                    {this.props.children}
-                    {this.props.isSelected}
-                  
-
-                   
-
-
-              
-                </button>
-
-              
-
-
-                {/* <button children={this.props}
-                        isSelected={this.props}
-                         onClick={this.props}>List</button>
-                  
-                <button children={this.props}
-                    isSelected={this.props}
-                    onClick={this.props}>Pay</button> */}
-            </div>
-
+            <div>
+            <button  className= {`  ${this.props.isSelected.toString() ? '  btn btn-secondary': ' btn btn-light '  } `}
+             onClick={this.props.onClick}
+                     >
+                   {this.props.children}
+                 
+                
+            </button>
+            
+         </div>
         )
+        
 
     }
 
