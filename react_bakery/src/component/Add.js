@@ -37,7 +37,7 @@ class Add extends Component {
          console.log(this.state.price)
     }
 
-    submitForm(evt) {
+    submitForm() {
         this.props.callback(this.state.input, this.state.price)
     }
 
@@ -51,14 +51,14 @@ class Add extends Component {
                 
                     <input input={this.state.input} type="text" onChange={this.updateInput} className="form-control" placeholder="item" />
                     <button className="btn btn-primary " onClick={this.submitForm}>Add</button>
-                
+                    
 
                 <Slider
                     max={this.props.max}
                     min={this.props.min}
                     value={this.state.price}
                     onChange={this.updatePrice}
-                    callback={this.props.callback }
+                    callback={this.props.callback}
                 />
 
                 {this.state.price}€

@@ -29,11 +29,11 @@ class App extends Component {
     console.log(this.state)
   }
 
-  addItem(price, input) {
+  addItem( input,price) {
     // creat un neveau obj newItem
    let newItem={
-     input:'input',
-     price:'price'
+     input:input,
+     price:price
    }
    // get all  recupere (state.items) on recuper un tableau
    let allItems=this.state.items
@@ -72,7 +72,9 @@ class App extends Component {
         {this.state.activeTab === 'add' && <Add max={max}
            min={min} 
            callback={this.addItem}/>}
-        {this.state.activeTab === 'list' && <List />}
+        {this.state.activeTab === 'list' && <List
+        items={this.state.items}
+        fn= {this.props.submitForm}/>}
         {this.state.activeTab === 'pay' && <Pay />}
       </div>
     )
