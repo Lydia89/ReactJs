@@ -23,10 +23,9 @@ class Button extends Component {
     render() {
         return (
            
-                <div>
+                <div  className="btn-group  mx-2"> 
                 <button  className= {this.props.isSelected.toString() ? '  btn btn-secondary': ' btn btn-light '  }
                  onClick={this.props.onClick} >
-                        
                        {this.props.children}
                      
                     
