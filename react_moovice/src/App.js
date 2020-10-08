@@ -7,13 +7,19 @@ import {
   Link,
   Switch
 } from 'react-router-dom';
-import Home from './components/Home'
-import Battle from './components/battle'
+
+//import placeholder from '../../img/placeholder.png'
+import Home from './components/Discover'
+import Battle from './components/DiscoverBattle'
 import Mylist from './components/my-list'
 import Popularbattle from './components/popular-battle'
 import Popular from './components/popular'
+//import Card from './components/movie/Card'
 
 class App extends Component {
+
+
+
   render() {
     return (
 
@@ -22,10 +28,10 @@ class App extends Component {
         <div>
           <nav>
             <ul>
-              <li><Link to="/">Home</Link></li>
-              <li><Link to="/battle/">Battle</Link></li>
+              <li><Link to="/"> This week</Link></li>
+              <li><Link to="/battle/">This week battle</Link></li>
               <li><Link to="/popular/">Popular</Link></li>
-              <li><Link to="/popular-battle/">Popular-battle</Link></li>
+              <li><Link to="/popular-battle/">Popularbattl </Link></li>
               <li><Link to="/my-list/">My-list</Link></li>
             </ul>
           </nav>
@@ -52,7 +58,7 @@ class App extends Component {
 
 
 
-
+       
 
 
         </div>
