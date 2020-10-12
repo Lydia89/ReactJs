@@ -1,18 +1,20 @@
 import React, { Component } from 'react';
 import placeholder from '../img/placeholder.png'
-//import Card from './movie/Card'
+import Card from './movie/Card';
+
 class Popularbattl extends Component {
+    constructor(){
+        super()
+        this.choseFilm=this.choseFilm(this)
+    }
 
     state = {
         movies: [],
         poster_path: '',
         title: '',
         overview: '',
-        currentMovice: null,
-        source: placeholder,
-        currentPage :1,
+        currentPage: 1,
     }
-
 
     componentDidMount() {
 
@@ -20,72 +22,70 @@ class Popularbattl extends Component {
             .then(res => res.json())
             .then(json => {
                 console.log(json)
-                if (json.results) {
-                    this.setState({
-                        source: json.poster_path
-                    })
+                const movies = json.results.map((elem) => {
+                    return {
 
-                }
-                this.setState({
+                        title: elem.title,
+                        description: elem.overview,
+                        imgUrl: elem.poster_path ? `https://image.tmdb.org/t/p/w300/${elem.poster_path} ` : placeholder
 
-                    title: json.results[0].title,
-                    posterpath: json.results[0].poster_path,
-                    overview: json.results[0].overview,
-                    movies: json.results
-
+                    }
                 })
+                this.setState({ movies })
+                /*
+                    this.setState({
+      
+                        title: json.results[0].title,
+                        posterpath: json.results[0].poster_path,
+                        overview: json.results[0].overview,
+                        movies: json.results
+       
+                    })*/
                 //console.log(json.results[0].title)
                 // console.log(json.results[0].poster_path)
                 // console.log(json.results[0].overview)
                 console.log('movice', json.results)
             })
     }
-
-    click(poster_path) {
-        fetch(poster_path)
-            .then(res => res.json())
-            .then(json => {
-                this.setState({
-                    currentMovice: json
-                })
-            })
+    choseFilm(){
 
     }
 
+
+
     render() {
-    return (
-            <div>
-                Popular
-               
+        const {
+            movies,
+            currentPage
+        } = this.state
 
 
-<section>
-          {this.state.currentPage ?
-            (<div className="poke-info">
-              
-              <div>
-              <p><b>title:</b> {this.state.currentPokemon.name}</p>
-                <p><b>Height :</b>{this.state.currentPokemon.height}</p>
-                <p><b>Weight :</b>{this.state.currentPokemon.weight}</p>
-                <p><b>Type :</b>{this.state.currentPokemon.types[0].type.name}</p>
+        const secondIndex = currentPage * 2 - 1
+        const firstIndex = secondIndex - 1
+        const firstMovie = this.state.movies[firstIndex]
+        const secondMovie = this.state.movies[secondIndex]
+        console.log('firstMovie', firstIndex)
+        console.log('firstMovie', secondIndex)
+        return (
+            <div className="row">
 
-              </div>
-            </div>) :
-            (<h1>Please select film</h1>)
-          }
-        </section>
+                <div className="col-6" > 
+                <button  onClick={this.choseFilm}> <Card {...firstMovie} /></button>
+                 </div>
 
 
+                <div className="col-6" >
+                    <button> <Card  {...secondMovie} /></button>
+                   
+                </div>
 
 
 
-
-
-                <section>
-                    {this.state.movies.map((elem) => {
+                {/**<section>
+                    {this.state.movies.map((elem, index) => {
                         return (
-                            <button onClick={() => this.click(elem.poster_path)} >
-                               {/**<img src={`https://image.tmdb.org/t/p/w300/${elem.poster_path}`} style={{ width: 150, height: 250 }} /> */} 
+                            <button onClick={() => this.click(elem.poster_path)} key={index} >
+                                <img src={`https://image.tmdb.org/t/p/w300/${elem.poster_path}`} style={{ width: 150, height: 250 }} />
                                 <p>{elem.title}</p>
                                 <p>{elem.overview}</p>
 
@@ -95,15 +95,15 @@ class Popularbattl extends Component {
                     })}
 
 
-                </section>
+                </section> */}
             </div>
         )
     }
 }
 
- 
- 
- 
- 
- 
- export default Popularbattl
+
+
+
+
+
+export default Popularbattl
