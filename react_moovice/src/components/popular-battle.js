@@ -3,9 +3,9 @@ import placeholder from '../img/placeholder.png'
 import Card from './movie/Card';
 
 class Popularbattl extends Component {
-    constructor(){
+    constructor() {
         super()
-        this.choseFilm=this.choseFilm(this)
+        this.choseFilm = this.choseFilm.bind(this)
     }
 
     state = {
@@ -24,7 +24,7 @@ class Popularbattl extends Component {
                 console.log(json)
                 const movies = json.results.map((elem) => {
                     return {
-
+                        id: elem.id,
                         title: elem.title,
                         description: elem.overview,
                         imgUrl: elem.poster_path ? `https://image.tmdb.org/t/p/w300/${elem.poster_path} ` : placeholder
@@ -44,18 +44,28 @@ class Popularbattl extends Component {
                 //console.log(json.results[0].title)
                 // console.log(json.results[0].poster_path)
                 // console.log(json.results[0].overview)
-                console.log('movice', json.results)
+                //console.log('movice', json.results)
             })
     }
-    choseFilm(){
+    choseFilm(id) {
+        //console.log('choseFilm ok',id)
+        
+        let mylist =  JSON.parse(localStorage.getItem('my-list')) || []
+        mylist.push(id)
+        console.log('mylist', mylist)
+        localStorage.setItem('my-list', JSON.stringify(mylist))
+
+
+        this.setState({
+            currentPage: this.state.currentPage + 1
+        })
+
 
     }
-
-
 
     render() {
         const {
-            movies,
+
             currentPage
         } = this.state
 
@@ -65,18 +75,22 @@ class Popularbattl extends Component {
         const firstMovie = this.state.movies[firstIndex]
         const secondMovie = this.state.movies[secondIndex]
         console.log('firstMovie', firstIndex)
-        console.log('firstMovie', secondIndex)
+        // console.log('firstMovie', secondIndex)
         return (
             <div className="row">
 
-                <div className="col-6" > 
-                <button  onClick={this.choseFilm}> <Card {...firstMovie} /></button>
-                 </div>
+                <div className="col-6" >
+                    <button onClick={() => this.choseFilm(firstMovie.id)}>
+                        <Card {...firstMovie} />
+                    </button>
+                </div>
 
 
                 <div className="col-6" >
-                    <button> <Card  {...secondMovie} /></button>
-                   
+                    <button onClick={() => this.choseFilm(secondMovie.id)}>
+                        <Card  {...secondMovie} />
+                    </button>
+
                 </div>
 
 
