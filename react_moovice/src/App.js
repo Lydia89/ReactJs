@@ -15,6 +15,7 @@ import Mylist from './components/my-list'
 import Popularbattle from './components/popular-battle'
 import Popular from './components/popular'
 //import Card from './components/movie/Card'
+//import Quiz from './components/quiz'
 
 class App extends Component {
 
@@ -51,7 +52,7 @@ class App extends Component {
               <Popularbattle />
             </Route>
             <Route path="/my-list/">
-              <Mylist />
+              <Mylist/>
             </Route>
 
           </Switch>

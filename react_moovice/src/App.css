@@ -1,7 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 
 
-
+body{
+  font-family: Nunito;
+}
+/*
 .App {
   text-align: center;
 }
@@ -35,3 +38,4 @@
     transform: rotate(360deg);
   }
 }
+*/

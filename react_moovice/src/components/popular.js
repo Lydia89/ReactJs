@@ -9,8 +9,8 @@ class Popular extends Component {
         poster_path: '',
         title: '',
         overview: '',
-      
-       
+
+
     }
 
     componentDidMount() {
@@ -19,25 +19,25 @@ class Popular extends Component {
             .then(res => res.json())
             .then(json => {
                 console.log(json)
-                const movies =json .results.map((elem)=>{
-                    return{
+                const movies = json.results.map((elem) => {
+                    return {
 
-                        title:elem.title,
-                        description:elem.overview,
-                          imgUrl:elem.poster_path ?`https://image.tmdb.org/t/p/w300/${elem.poster_path} `  : placeholder
+                        title: elem.title,
+                        description: elem.overview,
+                        imgUrl: elem.poster_path ? `https://image.tmdb.org/t/p/w300/${elem.poster_path} ` : placeholder
 
-                    } 
+                    }
                 })
-                this.setState({movies})
-            /*
-                this.setState({
-  
-                    title: json.results[0].title,
-                    posterpath: json.results[0].poster_path,
-                    overview: json.results[0].overview,
-                    movies: json.results
-   
-                })*/
+                this.setState({ movies })
+                /*
+                    this.setState({
+      
+                        title: json.results[0].title,
+                        posterpath: json.results[0].poster_path,
+                        overview: json.results[0].overview,
+                        movies: json.results
+       
+                    })*/
                 //console.log(json.results[0].title)
                 // console.log(json.results[0].poster_path)
                 // console.log(json.results[0].overview)
@@ -45,19 +45,19 @@ class Popular extends Component {
             })
     }
 
-    
+
 
     render() {
-        const{ 
+        const {
             movies
-        } =this.state
-          
+        } = this.state
+
         return (
             <div>
-            
-            {movies.map((elem,index)=>{
-                return <Card key={index}  title={elem.title} description={elem.description} imgUrl={elem.imgUrl}/>
-            })}
+
+                {movies.map((elem, index) => {
+                    return <Card key={index} title={elem.title} description={elem.description} imgUrl={elem.imgUrl} />
+                })}
 
 
                 {/**  <Card
@@ -81,7 +81,7 @@ class Popular extends Component {
 
 
                 </section>*/}
-               
+
             </div>
         )
     }

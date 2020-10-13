@@ -49,17 +49,18 @@ class Popularbattl extends Component {
     }
     choseFilm(id) {
         //console.log('choseFilm ok',id)
-        
-        let mylist =  JSON.parse(localStorage.getItem('my-list')) || []
-        mylist.push(id)
-        console.log('mylist', mylist)
-        localStorage.setItem('my-list', JSON.stringify(mylist))
 
+        let mylist = JSON.parse(localStorage.getItem('my-list')) || []
+
+        if (!mylist.includes(id)) {
+            mylist.push(id)
+            localStorage.setItem('my-list', JSON.stringify(mylist))
+        }
+        console.log('mylist', mylist)
 
         this.setState({
             currentPage: this.state.currentPage + 1
         })
-
 
     }
 
