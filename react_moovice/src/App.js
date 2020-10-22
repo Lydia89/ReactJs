@@ -52,14 +52,14 @@ class App extends Component {
               <Popularbattle />
             </Route>
             <Route path="/my-list/">
-              <Mylist/>
+              <Mylist />
             </Route>
 
           </Switch>
 
 
 
-       
+
 
 
         </div>

@@ -32,6 +32,7 @@ class Popularbattl extends Component {
                     }
                 })
                 this.setState({ movies })
+               // console.log('this.State.movies',this.state.movies)
                 /*
                     this.setState({
       
@@ -51,6 +52,8 @@ class Popularbattl extends Component {
         //console.log('choseFilm ok',id)
 
         let mylist = JSON.parse(localStorage.getItem('my-list')) || []
+
+        // Evité les duplicats de film enregistre
 
         if (!mylist.includes(id)) {
             mylist.push(id)
@@ -74,6 +77,9 @@ class Popularbattl extends Component {
         const secondIndex = currentPage * 2 - 1
         const firstIndex = secondIndex - 1
         const firstMovie = this.state.movies[firstIndex]
+        if(firstMovie===undefined){
+            return(<div> Films are loading,please wait !</div>)
+        }
         const secondMovie = this.state.movies[secondIndex]
         console.log('firstMovie', firstIndex)
         // console.log('firstMovie', secondIndex)
@@ -94,23 +100,7 @@ class Popularbattl extends Component {
 
                 </div>
 
-
-
-                {/**<section>
-                    {this.state.movies.map((elem, index) => {
-                        return (
-                            <button onClick={() => this.click(elem.poster_path)} key={index} >
-                                <img src={`https://image.tmdb.org/t/p/w300/${elem.poster_path}`} style={{ width: 150, height: 250 }} />
-                                <p>{elem.title}</p>
-                                <p>{elem.overview}</p>
-
-                            </button>
-                        )
-
-                    })}
-
-
-                </section> */}
+ 
             </div>
         )
     }
