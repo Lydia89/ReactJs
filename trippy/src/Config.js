@@ -1,1 +1,1 @@
-export let config={host:`http://localhost:3002`}
+export let Config={host:` http://localhost:3002`}

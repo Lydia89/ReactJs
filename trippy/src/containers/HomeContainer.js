@@ -1,6 +1,21 @@
 import React from 'react';
 import Home from '../components/Core/Home'
+import Api from '../utils/Api'
 class HomeContainer extends React.Component {
+
+
+state={
+    cities:[]
+}
+    componentDidMount(){
+      Api.getHome()
+      this.setState({
+        cities:this.state.cities
+      })
+  console.log('HomeContainer',this.state.cities)
+    }
+
+
     render() {
         return (
             <div
